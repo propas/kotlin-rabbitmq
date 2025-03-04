@@ -6,10 +6,13 @@ plugins {
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(libs.versions.java.get().toInt())
 }
 
 dependencies {
-    // Add a dependency on the Kotlin Gradle plugin, so that convention plugins can apply it.
+    //https://github.com/gradle/gradle/issues/15383#issuecomment-779893192
+    implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
     implementation(libs.kotlinGradlePlugin)
+    implementation(libs.kotlinSpringPlugin)
+    implementation(libs.springBootPlugin)
 }
