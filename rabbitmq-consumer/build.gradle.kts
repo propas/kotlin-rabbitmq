@@ -4,7 +4,9 @@ plugins {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-amqp")
+    implementation(project(":rabbitmq-common"))
+    implementation(libs.spring.boot.starter.amqp)
+    implementation(libs.bundles.jackson)
 }
 
 application {

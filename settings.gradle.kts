@@ -15,3 +15,5 @@ rootProject.name = "kotlin-rabbitmq"
 
 include(":rabbitmq-producer")
 include(":rabbitmq-consumer")
+include("rabbit-common")
+include("rabbitmq-common")
