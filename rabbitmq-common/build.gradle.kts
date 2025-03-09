@@ -1,3 +1,7 @@
 plugins {
-    id("buildsrc.convention.kotlin-jvm")
+    id("library-conventions")
+}
+
+dependencies {
+    implementation(libs.jackson.module.kotlin)
 }

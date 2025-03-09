@@ -1,5 +1,6 @@
-package cz.propas.rabbitmq.producer
+package cz.propas.rabbitmq.producer.producers
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.amqp.rabbit.core.RabbitTemplate
@@ -14,8 +15,9 @@ private val log: Logger = LoggerFactory.getLogger(FixedRateProducer::class.java)
 @EnableScheduling
 @Profile("fixed-rate")
 class FixedRateProducer(
-    rabbitTemplate: RabbitTemplate
-) : AbstractProducer(rabbitTemplate) {
+    rabbitTemplate: RabbitTemplate,
+    objectMapper: ObjectMapper
+) : AbstractProducer(rabbitTemplate, objectMapper) {
     private var i = 0
 
     @Scheduled(fixedRate = 500)

@@ -1,4 +1,4 @@
-package cz.propas.rabbitmq.consumer
+package cz.propas.rabbitmq.consumer.consumers
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener
 import org.springframework.context.annotation.Profile

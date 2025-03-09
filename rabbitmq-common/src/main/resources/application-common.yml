@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: fixed-rate
+    active: human-resource
   rabbitmq:
     host: localhost
     port: 5672

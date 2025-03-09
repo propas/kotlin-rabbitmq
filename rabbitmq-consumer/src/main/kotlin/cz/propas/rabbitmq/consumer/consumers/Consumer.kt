@@ -1,4 +1,4 @@
-package cz.propas.rabbitmq.consumer
+package cz.propas.rabbitmq.consumer.consumers
 
 interface Consumer {
     fun receiveMessage(message: String)
