@@ -11,12 +11,12 @@ import java.time.LocalDate
 
 @Service
 @Profile("human-resource")
-class HumanResourceProducer(
+class HumanResourceFanoutProducer(
     rabbitTemplate: RabbitTemplate,
     objectMapper: ObjectMapper
 ) : AbstractProducer(rabbitTemplate, objectMapper) {
 
-    private val log: Logger = LoggerFactory.getLogger(HumanResourceProducer::class.java)
+    private val log: Logger = LoggerFactory.getLogger(HumanResourceFanoutProducer::class.java)
 
     override fun sendMessage() {
         for (i in 1..5) {

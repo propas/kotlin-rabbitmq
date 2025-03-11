@@ -1,11 +1,11 @@
 spring:
   profiles:
-    active: picture-dlx
+    active: furniture-headers
   rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
-    listener:
-      simple:
-        acknowledge-mode: manual
+    #listener:
+     # simple:
+      #  acknowledge-mode: manual

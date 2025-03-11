@@ -13,8 +13,8 @@ class AccountingConsumer(
     private val objectMapper: ObjectMapper) : AbstractConsumer() {
 
     @RabbitListener(queues = ["q.hr.accounting"])
-    override fun receiveMessage(message: Message) {
+    fun receiveMessage(message: Message) {
         val employee = objectMapper.readValue(message.body, Employee::class.java)
-        receiveMessage("Accounting", employee.toString())
+        logMessage("Accounting", employee.toString())
     }
 }

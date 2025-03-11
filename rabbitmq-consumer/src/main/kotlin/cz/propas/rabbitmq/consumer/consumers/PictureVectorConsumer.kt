@@ -13,8 +13,8 @@ class PictureVectorConsumer(
     private val objectMapper: ObjectMapper) : AbstractConsumer() {
 
     @RabbitListener(queues = ["q.picture.vector"])
-    override fun receiveMessage(message: Message) {
+    fun receiveMessage(message: Message) {
         val picture = objectMapper.readValue(message.body, Picture::class.java)
-        receiveMessage("Vector", picture.toString())
+        logMessage("Vector", picture.toString())
     }
 }

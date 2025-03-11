@@ -7,7 +7,7 @@ private val log: Logger = LoggerFactory.getLogger(AbstractConsumer::class.java)
 
 abstract class AbstractConsumer : Consumer {
 
-    override fun receiveMessage(from: String, message: String) {
+    override fun logMessage(from: String, message: String) {
         log.info("Receive message: $message from $from")
     }
 }

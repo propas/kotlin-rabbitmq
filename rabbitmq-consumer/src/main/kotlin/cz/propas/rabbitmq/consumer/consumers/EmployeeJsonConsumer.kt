@@ -13,8 +13,8 @@ class EmployeeJsonConsumer(
     private val objectMapper: ObjectMapper) : AbstractConsumer() {
 
     @RabbitListener(queues = ["course.employee"])
-    override fun receiveMessage(message: Message) {
+    fun receiveMessage(message: Message) {
         val employee = objectMapper.readValue(message.body, Employee::class.java)
-        receiveMessage("Employee", employee.toString())
+        logMessage("Employee", employee.toString())
     }
 }

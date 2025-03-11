@@ -12,10 +12,10 @@ class MyPictureImageAutomaticRejectConsumer(
     private val objectMapper: ObjectMapper) : AbstractConsumer() {
 
     @RabbitListener(queues = ["q.mypicture.image"])
-    override fun receiveMessage(message: Message) {
+    fun receiveMessage(message: Message) {
         val picture = objectMapper.readValue(message.body, Picture::class.java)
 
         if (picture.size > 9000) throw AmqpRejectAndDontRequeueException("Picture size is too big! $picture")
-        receiveMessage("Picture", picture.toString())
+        logMessage("Picture", picture.toString())
     }
 }

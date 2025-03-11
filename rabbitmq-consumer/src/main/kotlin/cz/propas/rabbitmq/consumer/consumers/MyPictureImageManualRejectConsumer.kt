@@ -20,13 +20,9 @@ class MyPictureImageManualRejectConsumer(
         val picture = objectMapper.readValue(message.body, Picture::class.java)
 
         if (picture.size > 9000) channel.basicReject(tag, false)
-        receiveMessage("Picture", picture.toString())
+        logMessage("Picture", picture.toString())
 
         channel.basicAck(tag, false)
         TODO("Do not forget to set acknowledge-mode to manual in application.yaml")
-    }
-
-    override fun receiveMessage(message: Message) {
-        TODO("Not yet implemented")
     }
 }

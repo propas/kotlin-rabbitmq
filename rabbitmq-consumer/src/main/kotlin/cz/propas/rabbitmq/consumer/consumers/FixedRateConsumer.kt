@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit
 class FixedRateConsumer : AbstractConsumer() {
 
     @RabbitListener(queues = ["course.fixedrate"], concurrency = "3-7")
-    override fun receiveMessage(message: Message) {
-        receiveMessage("FixedRate", message.body.toString())
+    fun receiveMessage(message: String) {
+        logMessage("FixedRate", message)
         TimeUnit.MILLISECONDS.sleep(ThreadLocalRandom.current().nextLong(2000))
     }
 }
