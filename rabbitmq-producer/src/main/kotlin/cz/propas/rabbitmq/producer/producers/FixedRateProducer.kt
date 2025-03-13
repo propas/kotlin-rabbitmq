@@ -24,6 +24,6 @@ class FixedRateProducer(
     override fun sendMessage() {
         i++
         log.info("Counter is : $i")
-        sendMessage("course.fixedrate", "Fix rate: $i")
+        sendMessage("fixedrate", "Fix rate: $i")
     }
 }

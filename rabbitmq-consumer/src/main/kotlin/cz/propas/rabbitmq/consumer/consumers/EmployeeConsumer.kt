@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Service
 
 @Service
-@Profile("employee-json")
-class EmployeeJsonConsumer(
+@Profile("employee")
+class EmployeeConsumer(
     private val objectMapper: ObjectMapper) : AbstractConsumer() {
 
-    @RabbitListener(queues = ["course.employee"])
+    @RabbitListener(queues = ["employee"])
     fun receiveMessage(message: Message) {
         val employee = objectMapper.readValue(message.body, Employee::class.java)
         logMessage("Employee", employee.toString())

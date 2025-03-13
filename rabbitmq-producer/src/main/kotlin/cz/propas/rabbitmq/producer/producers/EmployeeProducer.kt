@@ -10,19 +10,19 @@ import org.springframework.stereotype.Service
 import java.time.LocalDate
 
 @Service
-@Profile("employee-json")
-class EmployeeJsonProducer(
+@Profile("employee")
+class EmployeeProducer(
     rabbitTemplate: RabbitTemplate,
     objectMapper: ObjectMapper
 ) : AbstractProducer(rabbitTemplate, objectMapper) {
 
-    private val log: Logger = LoggerFactory.getLogger(EmployeeJsonProducer::class.java)
+    private val log: Logger = LoggerFactory.getLogger(EmployeeProducer::class.java)
 
     override fun sendMessage() {
         for (i in 1..5) {
             val employee = Employee(i.toLong(), "Employee $i", LocalDate.now() )
             log.info("Sending: $employee")
-            sendMessage("course.employee", employee)
+            sendMessage("employee", employee)
         }
     }
 }

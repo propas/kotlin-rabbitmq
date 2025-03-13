@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Service
 
 @Service
-@Profile("picture-topic")
+@Profile("topic-exchange")
 class PictureTopicConsumer(
     private val objectMapper: ObjectMapper) : AbstractConsumer() {
 

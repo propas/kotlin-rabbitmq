@@ -11,7 +11,7 @@ import org.springframework.messaging.handler.annotation.Header
 import org.springframework.stereotype.Service
 
 @Service
-@Profile("picture-dlx")
+@Profile("dead-letter-exchange")
 class MyPictureImageManualRejectConsumer(
     private val objectMapper: ObjectMapper) : AbstractConsumer() {
 
@@ -23,6 +23,6 @@ class MyPictureImageManualRejectConsumer(
         logMessage("Picture", picture.toString())
 
         channel.basicAck(tag, false)
-        TODO("Do not forget to set acknowledge-mode to manual in application.yaml")
+        TODO("Do not forget to set acknowledge-mode to manual in application-common.yaml")
     }
 }

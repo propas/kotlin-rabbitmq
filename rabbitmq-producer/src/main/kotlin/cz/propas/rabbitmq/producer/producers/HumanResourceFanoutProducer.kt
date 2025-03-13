@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service
 import java.time.LocalDate
 
 @Service
-@Profile("human-resource")
+@Profile("fanout-exchange")
 class HumanResourceFanoutProducer(
     rabbitTemplate: RabbitTemplate,
     objectMapper: ObjectMapper

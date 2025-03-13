@@ -7,7 +7,7 @@ import org.springframework.amqp.core.Message
 import org.springframework.amqp.rabbit.annotation.RabbitListener
 
 //@Service
-//@Profile("picture-dlx")
+//@Profile("dead-letter-exchange")
 class MyPictureImageAutomaticRejectConsumer(
     private val objectMapper: ObjectMapper) : AbstractConsumer() {
 

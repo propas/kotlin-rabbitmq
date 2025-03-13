@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service
 import java.util.concurrent.ThreadLocalRandom
 
 @Service
-@Profile("picture-topic")
+@Profile("topic-exchange")
 class PictureTopicProducer(
     rabbitTemplate: RabbitTemplate,
     objectMapper: ObjectMapper

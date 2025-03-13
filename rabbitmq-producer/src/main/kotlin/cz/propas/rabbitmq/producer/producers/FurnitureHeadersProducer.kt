@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Service
 
 @Service
-@Profile("furniture-headers")
+@Profile("headers-exchange")
 class FurnitureHeadersProducer(
     rabbitTemplate: RabbitTemplate,
     objectMapper: ObjectMapper

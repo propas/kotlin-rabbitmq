@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service
 import java.util.concurrent.ThreadLocalRandom
 
 @Service
-@Profile("picture-dlx")
+@Profile("dead-letter-exchange")
 class MyPictureDlxProducer(
     rabbitTemplate: RabbitTemplate,
     objectMapper: ObjectMapper

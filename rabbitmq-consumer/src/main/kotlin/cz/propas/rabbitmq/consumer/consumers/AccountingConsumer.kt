@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Service
 
 @Service
-@Profile("human-resource")
+@Profile("fanout-exchange")
 class AccountingConsumer(
     private val objectMapper: ObjectMapper) : AbstractConsumer() {
 
