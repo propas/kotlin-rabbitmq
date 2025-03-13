@@ -1,6 +1,8 @@
 package cz.propas.rabbitmq.producer.producers
 
+import cz.propas.rabbitmq.constants.PICTURE_TOPIC_EXCHANGE
 import com.fasterxml.jackson.databind.ObjectMapper
+import cz.propas.rabbitmq.constants.PICTURE_TOPIC_EXCHANGE_PROFILE
 import cz.propas.rabbitmq.entity.Picture
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -10,7 +12,7 @@ import org.springframework.stereotype.Service
 import java.util.concurrent.ThreadLocalRandom
 
 @Service
-@Profile("topic-exchange")
+@Profile(PICTURE_TOPIC_EXCHANGE_PROFILE)
 class PictureTopicProducer(
     rabbitTemplate: RabbitTemplate,
     objectMapper: ObjectMapper
@@ -36,7 +38,7 @@ class PictureTopicProducer(
             ).joinToString(".")
 
             log.info("Sending: $picture")
-            sendMessage("x.picture2", routingKey, picture)
+            sendMessage(PICTURE_TOPIC_EXCHANGE, routingKey, picture)
         }
     }
 }

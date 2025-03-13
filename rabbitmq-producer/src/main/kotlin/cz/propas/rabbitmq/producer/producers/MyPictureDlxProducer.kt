@@ -1,5 +1,6 @@
 package cz.propas.rabbitmq.producer.producers
 
+import cz.propas.rabbitmq.constants.MY_PICTURE_FANOUT_EXCHANGE
 import com.fasterxml.jackson.databind.ObjectMapper
 import cz.propas.rabbitmq.entity.Picture
 import org.slf4j.Logger
@@ -36,7 +37,7 @@ class MyPictureDlxProducer(
             ).joinToString(".")
 
             log.info("Sending: $picture")
-            sendMessage("x.mypicture", routingKey, picture)
+            sendMessage(MY_PICTURE_FANOUT_EXCHANGE, routingKey, picture)
         }
     }
 }

@@ -1,0 +1,13 @@
+package cz.propas.rabbitmq.constants
+
+const val HUMAN_RESOURCES_ACCOUNTING_QUEUE = "q.hr.accounting"
+const val HUMAN_RESOURCES_MARKETING_QUEUE = "q.hr.marketing"
+const val PICTURE_IMAGE_QUEUE = "q.picture.image"
+const val PICTURE_FILTER_QUEUE = "q.picture.filter"
+const val PICTURE_LOG_QUEUE = "q.picture.log"
+const val PICTURE_VECTOR_QUEUE = "q.picture.vector"
+const val MY_PICTURE_IMAGE_QUEUE = "q.mypicture.image"
+const val MY_PICTURE_IMAGE_TTL_QUEUE = "q.mypicture.image-ttl"
+const val MY_PICTURE_DLX_QUEUE = "q.mypicture.dlx"
+const val FURNITURE_PROMOTION_DISCOUNT_QUEUE = "q.promotion.discount"
+const val FURNITURE_PROMOTION_FREE_DELIVERY_QUEUE = "q.promotion.free-delivery"

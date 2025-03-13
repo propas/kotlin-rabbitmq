@@ -1,6 +1,8 @@
 package cz.propas.rabbitmq.producer.producers
 
+import cz.propas.rabbitmq.constants.PICTURE_DIRECT_EXCHANGE
 import com.fasterxml.jackson.databind.ObjectMapper
+import cz.propas.rabbitmq.constants.PICTURE_DIRECT_EXCHANGE_PROFILE
 import cz.propas.rabbitmq.entity.Picture
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -10,7 +12,7 @@ import org.springframework.stereotype.Service
 import java.util.concurrent.ThreadLocalRandom
 
 @Service
-@Profile("direct-exchange")
+@Profile(PICTURE_DIRECT_EXCHANGE_PROFILE)
 class PictureDirectProducer(
     rabbitTemplate: RabbitTemplate,
     objectMapper: ObjectMapper
@@ -30,7 +32,7 @@ class PictureDirectProducer(
                 ThreadLocalRandom.current().nextLong(1, 100000))
 
             log.info("Sending: $picture")
-            sendMessage("x.picture", picture.type, picture)
+            sendMessage(PICTURE_DIRECT_EXCHANGE, picture.type, picture)
         }
     }
 }

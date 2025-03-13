@@ -18,10 +18,10 @@ spring:
 |----------------------|--------------------------------|---------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | fixed-rate           | FixedRateProducer.kt           | FixedRateConsumer.kt                                                            | Used scheduler for sending message each 500 ms and concurency for more consumers.         |
 | employee             | EmployeeProducer.kt            | EmployeeConsumer.kt                                                             | Convert object to json.                                                                   |
-| fanout-exchange      | HumanResourceFanoutProducer.kt | AccountingConsumer.kt, MarketingConsumer.kt                                     | Used fanout exchange for sending message to multiple consumers (Broadcast)                |
+| human-resources      | HumanResourceFanoutProducer.kt | AccountingConsumer.kt, MarketingConsumer.kt                                     | Used fanout exchange for sending message to multiple consumers (Broadcast)                |
 | direct-exchange      | PictureDirectProducer.kt       | PictureImageConsumer.kt, PictureVectorConsumer.kt                               | Used direct exchange for sending message to selective queue(s) based on routing keys      |
 | topic-exchange       | PictureTopicProducer.kt        | PictureTopicConsumer.kt                                                         | Used topic exchange for sending message with multiple routing criteria                    |
-| headers-exchange     | FurnitureHeadersProducer.kt    |                                                                                 | Used headers exchange for sending message with multiple criteria at custom message header |
+| furniture-promotion  | FurnitureHeadersProducer.kt    |                                                                                 | Used headers exchange for sending message with multiple criteria at custom message header |
 | dead-letter-exchange | MyPictureDlxProducer.kt        | MyPictureImageAutomaticRejectConsumer.kt, MyPictureImageManualRejectConsumer.kt | Return message from consumers automatically or manually                                   |
 |                      |                                |                                                                                 |                                                                                           |
 

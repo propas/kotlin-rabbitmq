@@ -1,6 +1,8 @@
 package cz.propas.rabbitmq.producer.producers
 
+import cz.propas.rabbitmq.constants.PROMOTION_EXCHANGE
 import com.fasterxml.jackson.databind.ObjectMapper
+import cz.propas.rabbitmq.constants.FURNITURE_PROMOTION_PROFILE
 import cz.propas.rabbitmq.entity.Furniture
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -10,13 +12,13 @@ import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Service
 
 @Service
-@Profile("headers-exchange")
-class FurnitureHeadersProducer(
+@Profile(FURNITURE_PROMOTION_PROFILE)
+class FurniturePromotionProducer(
     rabbitTemplate: RabbitTemplate,
     objectMapper: ObjectMapper
 ) : AbstractProducer(rabbitTemplate, objectMapper) {
 
-    private val log: Logger = LoggerFactory.getLogger(FurnitureHeadersProducer::class.java)
+    private val log: Logger = LoggerFactory.getLogger(FurniturePromotionProducer::class.java)
 
     private val colors = listOf("white", "red", "green")
     private val materials = listOf("wood", "plastic", "steel")
@@ -35,7 +37,7 @@ class FurnitureHeadersProducer(
             messageProperties.setHeader("material", furniture.material)
 
             log.info("Sending: $furniture")
-            sendMessage("x.promotion", "", messageProperties, furniture)
+            sendMessage(PROMOTION_EXCHANGE, "", messageProperties, furniture)
         }
     }
 }
