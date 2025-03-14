@@ -2,6 +2,8 @@ package cz.propas.rabbitmq.consumer.consumers
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.rabbitmq.client.Channel
+import cz.propas.rabbitmq.constants.MY_PICTURE_DLX_PROFILE
+import cz.propas.rabbitmq.constants.MY_PICTURE_IMAGE_QUEUE
 import cz.propas.rabbitmq.entity.Picture
 import org.springframework.amqp.core.Message
 import org.springframework.amqp.rabbit.annotation.RabbitListener
@@ -11,11 +13,11 @@ import org.springframework.messaging.handler.annotation.Header
 import org.springframework.stereotype.Service
 
 @Service
-@Profile("dead-letter-exchange")
+@Profile(MY_PICTURE_DLX_PROFILE)
 class MyPictureImageManualRejectConsumer(
     private val objectMapper: ObjectMapper) : AbstractConsumer() {
 
-    @RabbitListener(queues = ["q.mypicture.image"])
+    @RabbitListener(queues = [MY_PICTURE_IMAGE_QUEUE])
     fun receiveMessage(message: Message, channel: Channel, @Header(AmqpHeaders.DELIVERY_TAG) tag: Long) {
         val picture = objectMapper.readValue(message.body, Picture::class.java)
 

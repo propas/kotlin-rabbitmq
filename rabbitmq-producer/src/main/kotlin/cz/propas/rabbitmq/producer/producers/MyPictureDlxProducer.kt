@@ -2,6 +2,7 @@ package cz.propas.rabbitmq.producer.producers
 
 import cz.propas.rabbitmq.constants.MY_PICTURE_FANOUT_EXCHANGE
 import com.fasterxml.jackson.databind.ObjectMapper
+import cz.propas.rabbitmq.constants.MY_PICTURE_DLX_PROFILE
 import cz.propas.rabbitmq.entity.Picture
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service
 import java.util.concurrent.ThreadLocalRandom
 
 @Service
-@Profile("dead-letter-exchange")
+@Profile(MY_PICTURE_DLX_PROFILE)
 class MyPictureDlxProducer(
     rabbitTemplate: RabbitTemplate,
     objectMapper: ObjectMapper

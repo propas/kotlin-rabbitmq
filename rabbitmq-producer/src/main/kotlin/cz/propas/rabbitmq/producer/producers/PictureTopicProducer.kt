@@ -37,7 +37,7 @@ class PictureTopicProducer(
                 picture.type
             ).joinToString(".")
 
-            log.info("Sending: $picture")
+            log.info("Sending: $picture with routing key: $routingKey")
             sendMessage(PICTURE_TOPIC_EXCHANGE, routingKey, picture)
         }
     }

@@ -18,15 +18,15 @@ class HumanResourcesConfig {
 
     @Bean
     fun humanResourcesExchange(): FanoutExchange =
-        FanoutExchange(HUMAN_RESOURCES_EXCHANGE, true, true)
+        FanoutExchange(HUMAN_RESOURCES_EXCHANGE, false, true)
 
     @Bean
     fun accountingQueue(): Queue =
-        Queue(HUMAN_RESOURCES_ACCOUNTING_QUEUE, true, false, true)
+        Queue(HUMAN_RESOURCES_ACCOUNTING_QUEUE, false, false, true)
 
     @Bean
     fun marketingQueue(): Queue =
-        Queue(HUMAN_RESOURCES_MARKETING_QUEUE, true, false, true)
+        Queue(HUMAN_RESOURCES_MARKETING_QUEUE, false, false, true)
 
     @Bean
     fun accountingBinding(accountingQueue: Queue, hrExchange: FanoutExchange): Binding =
