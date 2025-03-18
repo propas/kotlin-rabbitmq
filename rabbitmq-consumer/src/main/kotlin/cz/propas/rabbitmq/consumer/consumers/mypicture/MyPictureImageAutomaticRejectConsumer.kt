@@ -1,14 +1,18 @@
-package cz.propas.rabbitmq.consumer.consumers
+package cz.propas.rabbitmq.consumer.consumers.mypicture
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import cz.propas.rabbitmq.constants.MY_PICTURE_DLX_PROFILE
 import cz.propas.rabbitmq.constants.MY_PICTURE_IMAGE_QUEUE
+import cz.propas.rabbitmq.consumer.consumers.AbstractConsumer
 import cz.propas.rabbitmq.entity.Picture
 import org.springframework.amqp.AmqpRejectAndDontRequeueException
 import org.springframework.amqp.core.Message
 import org.springframework.amqp.rabbit.annotation.RabbitListener
+import org.springframework.context.annotation.Profile
+import org.springframework.stereotype.Service
 
-//@Service
-//@Profile(MY_PICTURE_DLX_PROFILE)
+@Service
+@Profile(MY_PICTURE_DLX_PROFILE)
 class MyPictureImageAutomaticRejectConsumer(
     private val objectMapper: ObjectMapper) : AbstractConsumer() {
 
