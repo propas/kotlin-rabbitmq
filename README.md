@@ -29,4 +29,4 @@ spring:
 Module contains consumers
 
 ## rabbit-producer
-Module contains producers
+Module contains producers and configs for exchanges, queues and bindings

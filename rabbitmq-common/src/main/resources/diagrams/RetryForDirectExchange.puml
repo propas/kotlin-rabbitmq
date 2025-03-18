@@ -1,0 +1,32 @@
+@startuml
+title RabbitMQ Retry Mechanism for Direct Exchange
+
+skinparam legendBackgroundColor #white
+skinparam legendBorderColor #white
+
+rectangle Producer #lightblue
+hexagon "x.guideline.work" as x.work #DarkSeaGreen
+queue "q.guideline.image.work" as q.work #DarkSeaGreen
+hexagon "x.guideline.wait" as x.wait #Khaki
+rectangle "Image Consumer" as c.image #lightblue
+queue "q.guideline.image.wait" as q.wait #Khaki
+hexagon "x.guideline.dead" as x.dead #plum
+queue "q.guideline.image.dead" as q.dead #plum
+rectangle "Dead Image Consumer" as c.dead #lightblue
+
+Producer -> x.work: publish
+x.work -> q.work
+q.work --> x.wait : DLX
+c.image -u[dashed]-> q.work
+c.image -[dashed]-> x.wait : reject
+x.wait --> q.wait
+q.wait -u-> x.work : DLX & TTL
+c.image -[dashed]-> x.dead : re-publish
+x.dead --> q.dead
+c.dead -[dashed]-> q.dead
+
+legend top right
+   | <img:http://www.plantuml.com/plantuml/png/LSsn3i8m30JGFLzXiNV83w3-ohKsJKHY8pk8toVPG3Uzk-7s6F3nxYt5i-eBZavHmFQfUj43BUHdEU5ycBFuQSsSr5JIAkasWo3aFnuv8TFczIfZko_keZpVlW00> | RabbitMQ |
+   | <img:http://www.plantuml.com/plantuml/png/LSqn3a8n30FGlQU8s1bw0VJlWHZyVmAjQ1EK575zsWtaoS-3jnZmyUujnRFg2uvEKS3sgVgWErh8ptB0UJTdySEQEQcff8Lqca4Gyb_TSqAcyvKHHVXsMR29ylpx0W00> | Kotlin |
+endlegend
+@enduml
