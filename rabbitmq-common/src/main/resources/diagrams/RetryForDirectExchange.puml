@@ -1,10 +1,10 @@
 @startuml
-title RabbitMQ Retry Mechanism for Direct Exchange
+title Retry Mechanism for Direct Exchange
 
 skinparam legendBackgroundColor #white
 skinparam legendBorderColor #white
 
-rectangle Producer #lightblue
+rectangle Publisher #lightblue
 hexagon "x.guideline.work" as x.work #DarkSeaGreen
 queue "q.guideline.image.work" as q.work #DarkSeaGreen
 hexagon "x.guideline.wait" as x.wait #Khaki
@@ -14,7 +14,7 @@ hexagon "x.guideline.dead" as x.dead #plum
 queue "q.guideline.image.dead" as q.dead #plum
 rectangle "Dead Image Consumer" as c.dead #lightblue
 
-Producer -> x.work: publish
+Publisher -> x.work: publish
 x.work -> q.work
 q.work --> x.wait : DLX
 c.image -u[dashed]-> q.work

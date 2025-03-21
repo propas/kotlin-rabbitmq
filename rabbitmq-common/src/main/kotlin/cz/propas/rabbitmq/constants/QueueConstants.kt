@@ -11,6 +11,7 @@ const val MY_PICTURE_IMAGE_TTL_QUEUE = "q.mypicture.image-ttl"
 const val MY_PICTURE_DLX_QUEUE = "q.mypicture.dlx"
 const val PROMOTION_DISCOUNT_QUEUE = "q.promotion.discount"
 const val PROMOTION_FREE_DELIVERY_QUEUE = "q.promotion.free-delivery"
+const val DELAYED_MESSAGE_QUEUE = "q.delayed"
 
 const val DEAD_LETTER_EXCHANGE_QUEUE_FEATURE = "x-dead-letter-exchange"
 const val MESSAGE_TTL_QUEUE_FEATURE = "x-message-ttl"

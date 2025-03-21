@@ -1,0 +1,21 @@
+@startuml
+title Delayed Message Exchange
+
+skinparam legendBackgroundColor #white
+skinparam legendBorderColor #white
+
+rectangle "Publisher" #lightblue
+hexagon "x.delayed" #DarkSeaGreen
+note bottom of "x.delayed" : Type: delayed message\nArguments: x-delayed-type: direct
+queue "q.delayed" #DarkSeaGreen
+rectangle "Consumer" as consumer #lightblue
+
+Publisher -> x.delayed
+"x.delayed" -> q.delayed: bind using routing key
+consumer -l[dashed]-> q.delayed
+
+legend top right
+   | <img:http://www.plantuml.com/plantuml/png/LSsn3i8m30JGFLzXiNV83w3-ohKsJKHY8pk8toVPG3Uzk-7s6F3nxYt5i-eBZavHmFQfUj43BUHdEU5ycBFuQSsSr5JIAkasWo3aFnuv8TFczIfZko_keZpVlW00> | RabbitMQ |
+   | <img:http://www.plantuml.com/plantuml/png/LSqn3a8n30FGlQU8s1bw0VJlWHZyVmAjQ1EK575zsWtaoS-3jnZmyUujnRFg2uvEKS3sgVgWErh8ptB0UJTdySEQEQcff8Lqca4Gyb_TSqAcyvKHHVXsMR29ylpx0W00> | Kotlin |
+endlegend
+@enduml

@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: my-picture-dlx
+    active: delayed-exchange
   rabbitmq:
     host: localhost
     port: 5672
