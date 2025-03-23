@@ -1,0 +1,29 @@
+@startuml
+title Spring Retry Mechanism for Direct Exchange
+
+skinparam legendBackgroundColor #white
+skinparam legendBorderColor #white
+
+rectangle Publisher #lightblue
+hexagon "x.spring.work" as x.work #DarkSeaGreen
+queue "q.spring.image.work" as q.image.work #DarkSeaGreen
+queue "q.spring.vector.work" as q.vector.work #DarkSeaGreen
+hexagon "x.spring.dead" as x.dead #plum
+queue "q.spring.image.dead" as q.image.dead #plum
+queue "q.spring.vector.dead" as q.vector.dead #plum
+
+
+Publisher -r-> x.work: publish
+x.work --> q.image.work :.jpg, png
+x.work --> q.vector.work :svg
+q.image.work --> x.dead : DLX
+q.vector.work --> x.dead : DLX
+x.dead --> q.image.dead :.jpg, png
+x.dead --> q.vector.dead :svg
+
+
+legend top right
+   | <img:http://www.plantuml.com/plantuml/png/LSsn3i8m30JGFLzXiNV83w3-ohKsJKHY8pk8toVPG3Uzk-7s6F3nxYt5i-eBZavHmFQfUj43BUHdEU5ycBFuQSsSr5JIAkasWo3aFnuv8TFczIfZko_keZpVlW00> | RabbitMQ |
+   | <img:http://www.plantuml.com/plantuml/png/LSqn3a8n30FGlQU8s1bw0VJlWHZyVmAjQ1EK575zsWtaoS-3jnZmyUujnRFg2uvEKS3sgVgWErh8ptB0UJTdySEQEQcff8Lqca4Gyb_TSqAcyvKHHVXsMR29ylpx0W00> | Kotlin |
+endlegend
+@enduml

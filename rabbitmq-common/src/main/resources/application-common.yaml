@@ -1,11 +1,17 @@
 spring:
   profiles:
-    active: delayed-exchange
+    active: spring-retry-direct-exchange
   rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
-    #listener:
-     # simple:
+    listener:
+      simple:
+        retry:
+          enabled: true
+          initial-interval: 3s
+          max-interval: 10s
+          max-attempts: 5
+          multiplier: 2
       #  acknowledge-mode: manual

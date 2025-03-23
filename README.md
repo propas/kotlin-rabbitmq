@@ -65,3 +65,7 @@ Copy the profile name and paste it into __application-common.yaml__
     * __Producers:__ ReportRequestProducer.kt
     * __Consumers:__ ReportRequestConsumer.kt
     * __Description:__ Delayed message in RabbitMQ via new type of exchange "x-delayed-message". For new type of exchange install rabbitmq_delayed_message_exchange plugin to RabbitMQ.
+* __spring-retry-direct-exchange__
+    * __Producers:__ SpringRetryDirectProducer.kt
+    * __Consumers:__ SpringPictureConsumer.kt
+    * __Description:__ Enabled retry mechanism via Spring Framework
