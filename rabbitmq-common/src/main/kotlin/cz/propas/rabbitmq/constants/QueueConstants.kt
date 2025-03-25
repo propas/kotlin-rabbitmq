@@ -16,7 +16,12 @@ const val SPRING_PICTURE_IMAGE_QUEUE = "q.spring.image.work"
 const val SPRING_PICTURE_VECTOR_QUEUE = "q.spring.vector.work"
 const val SPRING_PICTURE_IMAGE_QUEUE_DLX = "q.spring.image.dead"
 const val SPRING_PICTURE_VECTOR_QUEUE_DLX = "q.spring.vector.dead"
+const val SPRING_HUMAN_RESOURCES_ACCOUNTING_QUEUE = "q.spring2.accounting.work"
+const val SPRING_HUMAN_RESOURCES_MARKETING_QUEUE = "q.spring2.marketing.work"
+const val SPRING_HUMAN_RESOURCES_ACCOUNTING_DLX_QUEUE = "q.spring2.accounting.dead"
+const val SPRING_HUMAN_RESOURCES_MARKETING_DLX_QUEUE = "q.spring2.marketing.dead"
 
 const val DEAD_LETTER_EXCHANGE_QUEUE_FEATURE = "x-dead-letter-exchange"
+const val DEAD_LETTER_ROUTING_KEY_FEATURE = "x-dead-letter-routing-key"
 const val MESSAGE_TTL_QUEUE_FEATURE = "x-message-ttl"
 

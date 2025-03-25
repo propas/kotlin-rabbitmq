@@ -1,5 +1,7 @@
 package cz.propas.rabbitmq.constants
 
+const val FIXED_RATE_PROFILE = "fixed-rate"
+const val EMPLOYEE_PROFILE = "employee"
 const val HUMAN_RESOURCES_PROFILE = "human-resources"
 const val PICTURE_DIRECT_EXCHANGE_PROFILE = "picture-direct-exchange"
 const val PICTURE_TOPIC_EXCHANGE_PROFILE = "picture-topic-exchange"
@@ -7,3 +9,4 @@ const val FURNITURE_PROMOTION_PROFILE = "furniture-promotion"
 const val MY_PICTURE_DLX_PROFILE = "my-picture-dlx"
 const val DELAYED_MESSAGE_EXCHANGE_PROFILE = "delayed-exchange"
 const val SPRING_RETRY_DIRECT_EXCHANGE_PROFILE = "spring-retry-direct-exchange"
+const val SPRING_RETRY_FANOUT_EXCHANGE_PROFILE = "spring-retry-fanout-exchange"

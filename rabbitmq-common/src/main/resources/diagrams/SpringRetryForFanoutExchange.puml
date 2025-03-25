@@ -1,0 +1,27 @@
+@startuml
+title Spring Retry Mechanism for Direct Exchange
+
+skinparam legendBackgroundColor #white
+skinparam legendBorderColor #white
+
+rectangle Publisher #lightblue
+hexagon "x.spring2.work"  #DarkSeaGreen
+queue "q.spring2.accounting.work" #DarkSeaGreen
+queue "q.spring2.marketing.work" #DarkSeaGreen
+hexagon "x.spring2.dead" #plum
+queue "q.spring2.accounting.dead" #plum
+queue "q.spring2.marketing.dead" #plum
+
+Publisher -r-> x.spring2.work: publish
+x.spring2.work --> q.spring2.accounting.work
+x.spring2.work --> q.spring2.marketing.work
+q.spring2.accounting.work --> x.spring2.dead : DLX & DLX routing key
+q.spring2.marketing.work  --> x.spring2.dead : DLX & DLX routing key
+x.spring2.dead --> q.spring2.accounting.dead : dead-accounting
+x.spring2.dead --> q.spring2.marketing.dead : dead-marketing
+
+legend top right
+   | <img:http://www.plantuml.com/plantuml/png/LSsn3i8m30JGFLzXiNV83w3-ohKsJKHY8pk8toVPG3Uzk-7s6F3nxYt5i-eBZavHmFQfUj43BUHdEU5ycBFuQSsSr5JIAkasWo3aFnuv8TFczIfZko_keZpVlW00> | RabbitMQ |
+   | <img:http://www.plantuml.com/plantuml/png/LSqn3a8n30FGlQU8s1bw0VJlWHZyVmAjQ1EK575zsWtaoS-3jnZmyUujnRFg2uvEKS3sgVgWErh8ptB0UJTdySEQEQcff8Lqca4Gyb_TSqAcyvKHHVXsMR29ylpx0W00> | Kotlin |
+endlegend
+@enduml

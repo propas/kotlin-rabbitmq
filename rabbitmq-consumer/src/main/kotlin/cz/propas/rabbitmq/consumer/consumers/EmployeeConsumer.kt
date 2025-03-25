@@ -1,6 +1,7 @@
 package cz.propas.rabbitmq.consumer.consumers
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import cz.propas.rabbitmq.constants.EMPLOYEE_PROFILE
 import cz.propas.rabbitmq.entity.Employee
 import org.springframework.amqp.core.Message
 import org.springframework.amqp.rabbit.annotation.RabbitListener
@@ -8,7 +9,7 @@ import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Service
 
 @Service
-@Profile("employee")
+@Profile(EMPLOYEE_PROFILE)
 class EmployeeConsumer(
     private val objectMapper: ObjectMapper) : AbstractConsumer() {
 

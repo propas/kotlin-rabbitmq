@@ -13,7 +13,7 @@ import java.io.IOException
 
 @Service
 @Profile(SPRING_RETRY_DIRECT_EXCHANGE_PROFILE)
-class SpringPictureConsumer(
+class SpringRetryDirectPictureConsumer(
     private val objectMapper: ObjectMapper) : AbstractConsumer() {
 
     @RabbitListener(queues = [SPRING_PICTURE_IMAGE_QUEUE])
